@@ -49,16 +49,18 @@ views.py
 ![Screenshot 2025-04-25 174255](https://github.com/user-attachments/assets/0e31c1ef-e323-4245-af3e-a5062feb5a7d)
 
 
+urls.py
+
+
+![Screenshot 2025-04-25 174332](https://github.com/user-attachments/assets/4b06c36d-c2b8-4221-a442-c56b7c0f0688)
+
+
+
 ## SERVER SIDE PROCESSING:
 
 
 ![image](https://github.com/user-attachments/assets/8da582f0-1bff-44ea-a85b-6520af3e3ba1)
 
-
-urls.py
-
-
-![Screenshot 2025-04-25 174332](https://github.com/user-attachments/assets/4b06c36d-c2b8-4221-a442-c56b7c0f0688)
 
 
 ## HOMEPAGE:
