@@ -34,7 +34,9 @@ Publish the website in the given URL.
 ## PROGRAM :
 
 <!DOCTYPE html>
+
 <html lang="en">
+ 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,8 +66,7 @@ Publish the website in the given URL.
         label {
             font-size: 150%;
             display:flow-root;
-            margin: 15px 0 5px;
-            
+            margin: 15px 0 5px; 
         }
         input[type="text"] {
             width: calc(75% - 24px);
@@ -101,7 +102,7 @@ Publish the website in the given URL.
         <label >Intensity (A):</label>
         <input type="text" name="intensity" value="{{I}}">
         
-        <label >Resistance (Ohm):</label>
+   <label >Resistance (Ohm):</label>
         <input type="text" name="resistance" value="{{R}}"><br><br>
         <input type="submit" value="Calculate"><br><br>
         <label>Power(watts):</label>
@@ -113,11 +114,63 @@ Publish the website in the given URL.
 </html> 
 
 
+views.py
+
+
+from django.shortcuts import render
+def power_calculate(request):
+    context = {}
+    context['power'] = ""
+    context['I'] = ""
+    context['R'] = ""  
+
+   if request.method == 'POST':
+
+   I = float(request.POST.get('intensity', '0')) 
+
+   R = float(request.POST.get('resistance', '0')) 
+        
+   power = (I*I)*R
+            context['power'] = f"{ power:.2f}"
+        
+  context['I'] = I
+               context['R'] = R
+        
+   print(f"POST method is used")
+        print(f"request= {request}")
+        print(f"Intensity = {I}")
+        print(f"Resistance = {R}")
+        print(f"Power = {power}")
+       
+      
+    
+   return render(request, 'app1/app.html',context)
+
+urls.py
+
+
+from django.contrib import admin
+from django.urls import path
+from app1 import views
+urlpatterns = [
+    path('admin/', admin.site.urls),
+
+   path('powerofbulb/',views.power_calculate,name="powerofbulb"),
+    path('',views.power_calculate,name="powerofbulb")
+]
+
+
 
 ## SERVER SIDE PROCESSING:
 
 
+![image](https://github.com/user-attachments/assets/8da582f0-1bff-44ea-a85b-6520af3e3ba1)
+
+
 ## HOMEPAGE:
+
+
+![image](https://github.com/user-attachments/assets/ab16f551-d1d8-49a7-aed7-9cc6f11d4cac)
 
 
 ## RESULT:
